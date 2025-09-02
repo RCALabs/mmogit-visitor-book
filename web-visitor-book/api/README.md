@@ -15,7 +15,7 @@ api/
 
 ## Deployment
 
-### Server: 91.98.123.26 (Hetzner)
+### Server: api.mmogit.sh
 
 1. **Build and deploy:**
 ```bash
@@ -23,7 +23,7 @@ api/
 cargo build --release --manifest-path api/Cargo.toml
 
 # Copy to server
-scp target/release/visitor-book-api root@91.98.123.26:/root/
+scp target/release/visitor-book-api root@api.mmogit.sh:/root/
 
 # On server
 systemctl restart visitor-book

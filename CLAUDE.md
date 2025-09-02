@@ -26,7 +26,7 @@ Frontend:
     - Ephemeral key generation per visit
   
 API_Backend:
-  location: Hetzner server (91.98.123.26)
+  location: Dedicated VPS server
   components:
     - Rust/Axum server on port 3000
     - mmogit integration for persistence
@@ -74,8 +74,8 @@ CORS_Proxy:
 ```bash
 cd api
 cargo build --release
-scp target/release/visitor-book-api root@91.98.123.26:/root/
-ssh root@91.98.123.26 'systemctl restart visitor-book'
+scp target/release/visitor-book-api root@YOUR_SERVER:/root/
+ssh root@YOUR_SERVER 'systemctl restart visitor-book'
 ```
 
 **Worker to Cloudflare:**

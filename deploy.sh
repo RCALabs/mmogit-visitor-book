@@ -20,10 +20,10 @@ tar -czf visitor-book-deploy.tar.gz \
 
 # Deploy to server
 echo "📤 Deploying to server..."
-scp visitor-book-deploy.tar.gz root@91.98.123.26:/tmp/
+scp visitor-book-deploy.tar.gz root@$VISITOR_BOOK_SERVER:/tmp/
 
 echo "🔧 Installing on server..."
-ssh root@91.98.123.26 << 'EOF'
+ssh root@$VISITOR_BOOK_SERVER << 'EOF'
 cd /tmp
 tar -xzf visitor-book-deploy.tar.gz
 mv api/target/release/visitor-book-api /root/visitor-book-api-new

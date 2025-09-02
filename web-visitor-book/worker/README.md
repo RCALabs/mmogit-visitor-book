@@ -26,7 +26,7 @@ wrangler deploy
 
 The worker is configured via `wrangler.toml` to:
 - Run at: https://mmogit-visitor-book-api.circuitrylabs.workers.dev
-- Proxy requests to: http://91.98.123.26:3000
+- Proxy requests to: https://api.mmogit.sh
 
 ## Purpose
 

@@ -36,8 +36,8 @@ web-visitor-book/
 - **Files**: `index.html`, `CNAME`, `wasm/`
 - **Deploy**: Push to GitHub, Pages auto-updates
 
-### API Backend (Hetzner)
-- **Server**: 91.98.123.26
+### API Backend
+- **Server**: Deployed on dedicated VPS
 - **Port**: 3000 (proxied via nginx)
 - **Service**: systemd unit `visitor-book.service`
 
@@ -67,8 +67,8 @@ cd worker && wrangler dev
 ```bash
 cd api
 cargo build --release
-scp target/release/visitor-book-api root@91.98.123.26:/root/
-ssh root@91.98.123.26 'systemctl restart visitor-book'
+scp target/release/visitor-book-api root@YOUR_SERVER:/root/
+ssh root@YOUR_SERVER 'systemctl restart visitor-book'
 ```
 
 ### 2. Deploy Worker to Cloudflare
