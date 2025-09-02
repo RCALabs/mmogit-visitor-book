@@ -1,3 +1,11 @@
+// MMOGIT Visitor Book API
+// 
+// Architecture:
+// - This API runs on the server and handles visitor signatures
+// - Signatures are stored in a SEPARATE repository (mmogit-visitor-signatures)
+// - The website code lives in mmogit-visitor-book (this repo)
+// - This separation keeps infrastructure (code) separate from data (memories)
+
 use anyhow::Result;
 use axum::{
     http::{header, StatusCode, Method},
@@ -79,9 +87,9 @@ async fn sign_visitor_book(
         ])
         .output();
     
-    // Auto-sync to GitHub after each visitor
+    // Auto-sync to signature repository after each visitor
     let _ = Command::new("sh")
-        .args(&["-c", "cd /root/.mmogit-visitor-book/messages && git push origin HEAD:users/5fae4887d090fa74"])
+        .args(&["-c", "cd /root/.mmogit-visitor-book/messages && git push git@github.com:RCALabs/mmogit-visitor-signatures.git HEAD:users/ad31e0613535962c8dfc3f00a2e2e40c7e72b2c08117683e05120a6613a933de"])
         .output();
     
     match output {
