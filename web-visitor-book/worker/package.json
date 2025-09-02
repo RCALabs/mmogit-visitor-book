@@ -1,0 +1,13 @@
+{
+  "name": "mmogit-visitor-book-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker proxy for MMOGIT visitor book",
+  "main": "cloudflare-worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.33.1"
+  }
+}
