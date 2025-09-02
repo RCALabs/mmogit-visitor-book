@@ -18,7 +18,7 @@ export default {
     try {
       // Proxy to our Hetzner server
       const originalUrl = new URL(request.url);
-      const targetUrl = `http://api.mmogit.sh:3000${originalUrl.pathname}${originalUrl.search}`;
+      const targetUrl = `http://api.mmogit.sh${originalUrl.pathname}${originalUrl.search}`;
       
       // Note: Cloudflare Workers may block direct IP requests
       // Consider using a domain name for the backend
