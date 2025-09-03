@@ -40,9 +40,9 @@ async fn health() -> &'static str {
 }
 
 fn count_visitors() -> u64 {
-    // Count actual memory files in mmogit
+    // Count git commits (each visitor creates a commit)
     let output = Command::new("sh")
-        .args(&["-c", "ls /root/.mmogit-visitor-book/messages/memories/ 2>/dev/null | wc -l"])
+        .args(&["-c", "cd /root/.mmogit-visitor-book/messages && git log --oneline 2>/dev/null | wc -l"])
         .output()
         .unwrap_or_else(|_| Command::new("echo").arg("0").output().unwrap());
     
